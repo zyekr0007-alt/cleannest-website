@@ -6,6 +6,9 @@
   <title>Contact CleanNest Jalandhar — Call or WhatsApp</title>
   <meta name="description" content="Contact CleanNest in Jalandhar — call +91 76100 00654, message on WhatsApp, or email cleannestclub@gmail.com. We reply fast, 7 days a week, 9 AM – 8 PM. Free quotes, no booking fee." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/config.js" defer></script>
   <script src="js/script.js" defer></script>
@@ -14,9 +17,9 @@
 
   <!-- ======= NAVBAR ======= -->
   <header class="nav" id="navbar">
-    <div class="container nav__inner">
+    <div class="nav__inner">
       <a href="index.html" class="nav__brand">
-        <span class="nav__logo">✨</span>
+        <span class="nav__mark">✨</span>
         <span class="nav__name">CleanNest<span class="nav__name-sub">Cleaning Services</span></span>
       </a>
       <nav class="nav__links" id="navLinks">
@@ -26,7 +29,7 @@
         <a href="index.html#reviews">Reviews</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html" aria-current="page">Contact</a>
-        <a href="book.html" class="btn btn--small nav__cta">Get Free Quote</a>
+        <a href="book.html" class="btn btn--primary btn--small nav__cta">Get Free Quote</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -38,17 +41,17 @@
     <!-- ======= PAGE HERO ======= -->
     <section class="page-hero">
       <div class="container">
-        <p class="hero__badge">⭐ 4.9 on Google · <span id="heroReviewCount">219+</span> reviews</p>
-        <h1 class="page-hero__title">Contact Us</h1>
-        <p class="page-hero__lead">Message us anytime — we reply fast, 7 days a week, 9 AM – 8 PM. Rated 4.9/5 by 219 Google reviews.</p>
+        <p class="hero__badge" data-reveal><span class="stars">★★★★★</span> 4.9 on Google · <span id="heroReviewCount">219+</span> reviews</p>
+        <h1 class="page-hero__title" data-reveal>Contact Us</h1>
+        <p class="page-hero__lead" data-reveal style="--d:.08s">Message us anytime — we reply fast, 7 days a week, 9 AM – 8 PM. Rated 4.9/5 by 219 Google reviews.</p>
       </div>
     </section>
 
     <!-- ======= CONTACT METHODS ======= -->
     <section class="section">
       <div class="container">
-        <div class="contact-methods">
-          <div class="cm">
+        <div class="grid--cm">
+          <div class="cm" data-reveal>
             <span class="cm__icon">📞</span>
             <div>
               <h3>Call us</h3>
@@ -56,7 +59,7 @@
               <a href="tel:+917610000654" id="contactPhone">+91 76100 00654</a>
             </div>
           </div>
-          <div class="cm">
+          <div class="cm" data-reveal style="--d:.08s">
             <span class="cm__icon">💬</span>
             <div>
               <h3>WhatsApp</h3>
@@ -64,7 +67,7 @@
               <a class="wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">+91 76100 00654</a>
             </div>
           </div>
-          <div class="cm">
+          <div class="cm" data-reveal style="--d:.16s">
             <span class="cm__icon">✉️</span>
             <div>
               <h3>Email</h3>
@@ -72,7 +75,7 @@
               <a href="mailto:cleannestclub@gmail.com" id="contactEmail">cleannestclub@gmail.com</a>
             </div>
           </div>
-          <div class="cm">
+          <div class="cm" data-reveal>
             <span class="cm__icon">📸</span>
             <div>
               <h3>Instagram</h3>
@@ -80,26 +83,33 @@
               <a href="https://www.instagram.com/cleannest.co" id="contactInstagram" target="_blank" rel="noopener">@cleannest.co</a>
             </div>
           </div>
-          <div class="cm" style="grid-column:1/-1;">
+          <div class="cm" data-reveal style="--d:.08s">
+            <span class="cm__icon">🕘</span>
+            <div>
+              <h3>Working hours</h3>
+              <p id="hoursNote">Open 7 days a week · 9 AM – 8 PM</p>
+            </div>
+          </div>
+          <div class="cm" data-reveal style="--d:.16s">
             <span class="cm__icon">📍</span>
             <div>
-              <h3>Visit / service area</h3>
+              <h3>Visit us</h3>
               <p id="contactAddress">Shop 3, Wadala Rd, opp. Palm Royale Estate, Guru Teg Bahadur Nagar, Green Model Town, Jalandhar, Punjab 144003</p>
-              <p><a href="#" id="reviewGmbLink" target="_blank" rel="noopener">View us on Google →</a> &nbsp;·&nbsp; <a href="#" id="writeReviewLink" target="_blank" rel="noopener">Leave a Google review →</a></p>
+              <a href="#" id="reviewGmbLink" target="_blank" rel="noopener">View us on Google →</a>
             </div>
           </div>
         </div>
 
         <div class="contact">
-          <div class="contact__info">
-            <p class="section__eyebrow">Working Hours</p>
-            <h2 class="section__title">Open 7 days a week</h2>
-            <p class="section__lead" id="hoursNote">Open 7 days a week · 9 AM – 8 PM</p>
+          <div class="contact__info" data-reveal>
+            <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Working Hours</p>
+            <h2 class="section-title">Open 7 days a week</h2>
             <div class="contact__hours">
               <ul id="hoursList"><!-- injected by script.js --></ul>
             </div>
+            <p class="section-lead" style="margin-top:26px;"><a href="#" id="writeReviewLink" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700;">Leave a Google review →</a></p>
           </div>
-          <form class="contact__form" data-quote-form>
+          <form class="contact__form" data-quote-form data-reveal="right">
             <h3 class="contact__form-title">Send us a message</h3>
             <p class="contact__form-note" style="text-align:left;margin-bottom:4px;">Fill this in and we'll continue the conversation on WhatsApp — fast and free.</p>
             <label class="field">
@@ -122,24 +132,30 @@
     </section>
 
     <!-- ======= CITIES ======= -->
-    <section class="section section--tint" id="cities">
+    <section class="section section--soft" id="cities">
       <div class="container">
-        <p class="section__eyebrow">Cities We Serve</p>
-        <h2 class="section__title">Jalandhar & nearby cities — wherever you are</h2>
-        <p class="section__lead">Fast same-week service across Jalandhar and nearby cities. Not listed here? Message us — we cover most of Punjab.</p>
-        <div class="chips" id="citiesList"><!-- injected by script.js --></div>
-        <a class="btn btn--primary wa-link" data-wa="Hi CleanNest! I'd like to check if you cover my area." href="#">Check my area on WhatsApp</a>
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-building"></use></svg>Cities We Serve</p>
+          <h2 class="section-title">Jalandhar &amp; nearby cities — wherever you are</h2>
+          <p class="section-lead">Fast same-week service across Jalandhar and nearby cities. Not listed here? Message us — we cover most of Punjab.</p>
+        </div>
+        <div class="chips" id="citiesList" data-reveal><!-- injected by script.js --></div>
+        <a class="btn btn--primary wa-link" data-wa="Hi CleanNest! I'd like to check if you cover my area." href="#" data-reveal>Check my area on WhatsApp</a>
       </div>
     </section>
 
     <!-- ======= CTA ======= -->
-    <section class="section cta">
+    <section class="section" style="padding-top:0;">
       <div class="container">
-        <h2 class="cta__title">Prefer to book straight away?</h2>
-        <p class="cta__sub">Use the online booking form — takes a minute, and you'll get your quote on WhatsApp.</p>
-        <div class="cta__actions">
-          <a href="book.html" class="btn btn--ghost">Book Online →</a>
-          <a class="btn btn--ghost wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">WhatsApp us</a>
+        <div class="cta" data-reveal="zoom">
+          <div class="cta__inner">
+            <h2 class="cta__title">Prefer to book straight away?</h2>
+            <p class="cta__sub">Use the online booking form — takes a minute, and you'll get your quote on WhatsApp.</p>
+            <div class="cta__actions">
+              <a href="book.html" class="btn btn--ghost">Book Online <span aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">WhatsApp us</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -149,8 +165,9 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <span class="footer__logo">✨ CleanNest</span>
-        <p>Professional deep cleaning in Jalandhar — rated <strong style="color:#fff;">4.9/5</strong> on Google. Real employees, eco-friendly products, satisfaction guaranteed.</p>
+        <span class="nav__mark">✨</span>
+        <p>Professional deep cleaning in Jalandhar — real employees, eco-friendly products, satisfaction guaranteed.</p>
+        <p class="rating-line">⭐ Rated 4.9/5 on Google · 219 reviews</p>
       </div>
       <div class="footer__col">
         <h4>Our Services</h4>
@@ -158,7 +175,7 @@
         <a href="services.html#kitchen-deep-cleaning">Kitchen Deep Cleaning</a>
         <a href="services.html#bathroom-deep-cleaning">Bathroom Deep Cleaning</a>
         <a href="services.html#sofa-dry-cleaning">Sofa Dry Cleaning</a>
-        <a href="services.html#carpet-steam-cleaning">Carpet & Steam Cleaning</a>
+        <a href="services.html#carpet-steam-cleaning">Carpet &amp; Steam Cleaning</a>
         <a href="services.html#commercial-cleaning">Commercial Cleaning</a>
       </div>
       <div class="footer__col">
@@ -181,8 +198,8 @@
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <span id="footerAddress"></span><br />
-        We serve: <span id="footerCities"></span><br /><br />
+        <span id="footerAddress"></span>
+        <div class="footer__areas">We serve: <span id="footerCities"></span></div>
         © <span id="footerYear">2026</span> CleanNest, Jalandhar. All rights reserved. ·
         <a href="https://cleannest.in/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> ·
         <a href="https://cleannest.in/terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a> ·
@@ -191,13 +208,16 @@
     </div>
   </footer>
 
-  <!-- Sticky mobile call / WhatsApp bar -->
+  <!-- Floating WhatsApp -->
+  <a class="wa-float wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#" aria-label="Chat on WhatsApp">💬</a>
+
+  <!-- Sticky mobile bar -->
   <div class="sticky-bar">
     <a href="tel:+917610000654" class="btn btn--ghost" id="stickyCall">📞 Call</a>
     <a class="btn btn--wa wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">💬 WhatsApp</a>
   </div>
 
-  <!-- Toast for form feedback -->
+  <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 </body>

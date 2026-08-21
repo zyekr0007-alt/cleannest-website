@@ -6,6 +6,9 @@
   <title>About CleanNest — Trusted Cleaners in Jalandhar</title>
   <meta name="description" content="CleanNest is a professional deep cleaning company in Jalandhar — rated 4.9/5 by 219 Google reviews. 400+ homes cleaned. Trained, verified staff with eco-friendly products and a satisfaction guarantee." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/config.js" defer></script>
   <script src="js/script.js" defer></script>
@@ -14,9 +17,9 @@
 
   <!-- ======= NAVBAR ======= -->
   <header class="nav" id="navbar">
-    <div class="container nav__inner">
+    <div class="nav__inner">
       <a href="index.html" class="nav__brand">
-        <span class="nav__logo">✨</span>
+        <span class="nav__mark">✨</span>
         <span class="nav__name">CleanNest<span class="nav__name-sub">Cleaning Services</span></span>
       </a>
       <nav class="nav__links" id="navLinks">
@@ -26,7 +29,7 @@
         <a href="index.html#reviews">Reviews</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="book.html" class="btn btn--small nav__cta">Get Free Quote</a>
+        <a href="book.html" class="btn btn--primary btn--small nav__cta">Get Free Quote</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -38,46 +41,84 @@
     <!-- ======= PAGE HERO ======= -->
     <section class="page-hero">
       <div class="container">
-        <p class="hero__badge">⭐ 4.9 on Google · <span id="heroReviewCount">219+</span> reviews</p>
-        <h1 class="page-hero__title">About CleanNest</h1>
-        <p class="page-hero__lead">A professional deep cleaning team in Jalandhar — 4.9/5 on Google, 219 reviews, 400+ homes cleaned.</p>
+        <p class="hero__badge" data-reveal><span class="stars">★★★★★</span> 4.9 on Google · <span id="heroReviewCount">219+</span> reviews</p>
+        <h1 class="page-hero__title" data-reveal>About CleanNest</h1>
+        <p class="page-hero__lead" data-reveal style="--d:.08s">A professional deep cleaning team in Jalandhar — 4.9/5 on Google, 219 reviews, 400+ homes cleaned.</p>
       </div>
     </section>
 
     <!-- ======= WHO WE ARE ======= -->
     <section class="section">
-      <div class="container container--narrow">
-        <p class="section__eyebrow">Who We Are</p>
-        <h2 class="section__title">Real employees. Real accountability.</h2>
-        <p class="section__lead" style="margin-bottom:18px;">CleanNest is a professional deep cleaning company in Jalandhar — rated 4.9/5 by 219 Google reviews. We serve homes, offices, schools and restaurants using high-quality machines and products, and genuine care in every space we clean.</p>
-        <p class="section__lead" style="margin-bottom:18px;">Every space is unique, which is why we provide <strong style="color:var(--navy);">customised cleaning solutions tailored to your needs</strong>. From full-house cleaning to kitchen, bathroom, chimney, AC, carpet and sofa cleaning, floor renew and commercial contracts — we do the job properly, on time, every time.</p>
-        <p class="section__lead" style="margin-bottom:0;">Our commitment: exceptional customer service and complete satisfaction — if you're not happy with the cleaning, we return and fix it at no extra charge. Our vision: to keep growing across Punjab and serve both residential and commercial spaces with the same promise — a spotless space, guaranteed.</p>
+      <div class="container">
+        <div class="contact">
+          <div data-reveal>
+            <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Who We Are</p>
+            <h2 class="section-title">Real employees. Real accountability.</h2>
+            <p class="section-lead" style="margin-bottom:16px;">CleanNest is a professional deep cleaning company in Jalandhar — rated 4.9/5 by 219 Google reviews. We serve homes, offices, schools and restaurants using high-quality machines and products, and genuine care in every space we clean.</p>
+            <p class="section-lead" style="margin-bottom:16px;">Every space is unique, which is why we provide <strong style="color:var(--navy);">customised cleaning solutions tailored to your needs</strong>. From full-house cleaning to kitchen, bathroom, chimney, AC, carpet and sofa cleaning, floor renew and commercial contracts — we do the job properly, on time, every time.</p>
+            <p class="section-lead" style="margin-bottom:0;">Our commitment: exceptional customer service and complete satisfaction — if you're not happy with the cleaning, we return and fix it at no extra charge.</p>
+          </div>
+          <div class="grid--ba" data-reveal="right" style="grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="ba-mini"><div class="ba__img ba__after"><img src="assets/img/team-equipment.jpg" alt="CleanNest team with professional cleaning equipment" loading="lazy" /></div></div>
+            <div class="ba-mini"><div class="ba__img ba__after"><img src="assets/img/team-vacuum.jpg" alt="CleanNest team vacuuming a home" loading="lazy" /></div></div>
+            <div class="ba-mini"><div class="ba__img ba__after"><img src="assets/img/team-crew.jpg" alt="CleanNest cleaning crew at work" loading="lazy" /></div></div>
+            <div class="ba-mini"><div class="ba__img ba__after"><img src="assets/img/team-service.jpg" alt="CleanNest team mid-service" loading="lazy" /></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= STATS ======= -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="stats" data-reveal="zoom">
+          <div class="stats__grid">
+            <div>
+              <div class="stats__num"><span data-count="400" data-suffix="+">0+</span></div>
+              <div class="stats__label">Homes cleaned</div>
+            </div>
+            <div>
+              <div class="stats__num"><span data-count="12">0</span></div>
+              <div class="stats__label">Cities served</div>
+            </div>
+            <div>
+              <div class="stats__num"><span data-count="4.9" data-decimals="1" data-suffix=" ★">0.0 ★</span></div>
+              <div class="stats__label">Google rating</div>
+            </div>
+            <div>
+              <div class="stats__num"><span data-count="7">0</span></div>
+              <div class="stats__label">Days a week</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ======= VALUES ======= -->
-    <section class="section section--tint">
+    <section class="section section--soft" style="padding-top:0;">
       <div class="container">
-        <p class="section__eyebrow">Our Promise</p>
-        <h2 class="section__title">Why people trust CleanNest</h2>
-        <div class="grid grid--features">
-          <div class="feature">
-            <span class="feature__icon">🌿</span>
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Our Promise</p>
+          <h2 class="section-title">Why people trust CleanNest</h2>
+        </div>
+        <div class="grid--features">
+          <div class="feature" data-reveal>
+            <span class="feature__num">01</span>
             <h3>Eco-friendly by default</h3>
             <p>Products safe for your home, your family and your pets — a thorough clean without compromising on health.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">✅</span>
+          <div class="feature" data-reveal style="--d:.08s">
+            <span class="feature__num">02</span>
             <h3>Satisfaction guaranteed</h3>
             <p>Not completely satisfied? We return and resolve the issue at no extra charge. Simple as that.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">🧑‍🔧</span>
+          <div class="feature" data-reveal style="--d:.16s">
+            <span class="feature__num">03</span>
             <h3>Trained, respectful staff</h3>
             <p>Verified, trained professionals who treat your home and belongings with care and respect.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">📅</span>
+          <div class="feature" data-reveal style="--d:.24s">
+            <span class="feature__num">04</span>
             <h3>Flexible scheduling</h3>
             <p>One-time deep clean or regular maintenance — available 7 days a week, around your schedule.</p>
           </div>
@@ -85,52 +126,32 @@
       </div>
     </section>
 
-    <!-- ======= STATS ======= -->
-    <section class="section stats">
-      <div class="container stats__grid">
-        <div>
-          <div class="stats__num"><span id="statHomes">400+</span></div>
-          <div class="stats__label">Homes cleaned</div>
-        </div>
-        <div>
-          <div class="stats__num"><span id="statCities">12</span></div>
-          <div class="stats__label">Cities served</div>
-        </div>
-        <div>
-          <div class="stats__num"><span id="statRating">4.9 ★</span></div>
-          <div class="stats__label">Google rating</div>
-        </div>
-        <div>
-          <div class="stats__num"><span id="statDays">7</span></div>
-          <div class="stats__label">Days a week</div>
-        </div>
-      </div>
-    </section>
-
     <!-- ======= WHY CLEANNEST ======= -->
     <section class="section">
       <div class="container">
-        <p class="section__eyebrow">Why CleanNest</p>
-        <h2 class="section__title">Machines, not just mops</h2>
-        <p class="section__lead">Every deep clean is done with professional-grade machines and products — high-pressure steam, hot-water extraction and hospital-grade sanitisers, operated by trained staff who treat your home like their own.</p>
-        <div class="grid grid--features">
-          <div class="feature">
-            <span class="feature__icon">⚡</span>
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Why CleanNest</p>
+          <h2 class="section-title">Machines, not just mops</h2>
+          <p class="section-lead">Every deep clean is done with professional-grade machines and products — high-pressure steam, hot-water extraction and hospital-grade sanitisers, operated by trained staff who treat your home like their own.</p>
+        </div>
+        <div class="grid--features">
+          <div class="feature" data-reveal>
+            <span class="feature__num">01</span>
             <h3>Quick response</h3>
             <p>Same-week slots, emergencies prioritised.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">🛡️</span>
-            <h3>Trained & verified</h3>
+          <div class="feature" data-reveal style="--d:.08s">
+            <span class="feature__num">02</span>
+            <h3>Trained &amp; verified</h3>
             <p>Every cleaner checked and trained in-house.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">💰</span>
+          <div class="feature" data-reveal style="--d:.16s">
+            <span class="feature__num">03</span>
             <h3>Fair pricing</h3>
             <p>Exact quote before we start. No hidden charges.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">🤝</span>
+          <div class="feature" data-reveal style="--d:.24s">
+            <span class="feature__num">04</span>
             <h3>Real employees</h3>
             <p>Real accountability — that's been CleanNest's thing since day one.</p>
           </div>
@@ -141,24 +162,30 @@
     <!-- ======= REVIEWS ======= -->
     <section class="section section--tint" id="reviews">
       <div class="container">
-        <p class="section__eyebrow">Google Reviews</p>
-        <h2 class="section__title">Here's what our customers are saying</h2>
-        <p class="section__lead">Rated <strong style="color:var(--navy);">4.9 out of 5</strong> from 219 Google reviews — real feedback from real customers in Jalandhar.</p>
-        <div class="grid grid--reviews" id="reviewsGrid"><!-- injected by script.js --></div>
-        <p style="text-align:center;margin-top:36px;">
-          <a class="btn btn--ghost btn--small" id="writeReviewLink" href="#" target="_blank" rel="noopener">Write a review →</a>
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Google Reviews</p>
+          <h2 class="section-title">Here's what our customers are saying</h2>
+          <p class="section-lead">Rated <strong style="color:var(--navy);">4.9 out of 5</strong> from 219 Google reviews — real feedback from real customers in Jalandhar.</p>
+        </div>
+        <div class="grid--reviews" id="reviewsGrid"><!-- injected by script.js --></div>
+        <p style="text-align:center;margin-top:36px;" data-reveal>
+          <a class="btn btn--ghost btn--small" id="writeReviewLink" href="#" target="_blank" rel="noopener">Write a review <span aria-hidden="true">→</span></a>
         </p>
       </div>
     </section>
 
     <!-- ======= CTA ======= -->
-    <section class="section cta">
+    <section class="section" style="padding-top:0;">
       <div class="container">
-        <h2 class="cta__title">Experience the CleanNest difference</h2>
-        <p class="cta__sub">Book your first clean today — free quote, no booking fee, no advance payment.</p>
-        <div class="cta__actions">
-          <a href="tel:+917610000654" class="btn btn--ghost" id="ctaCall">📞 Call +91 76100 00654</a>
-          <a class="btn btn--ghost wa-link" data-wa="Hi CleanNest! I'd like to book a cleaning." href="#">Book on WhatsApp</a>
+        <div class="cta" data-reveal="zoom">
+          <div class="cta__inner">
+            <h2 class="cta__title">Experience the CleanNest difference</h2>
+            <p class="cta__sub">Book your first clean today — free quote, no booking fee, no advance payment.</p>
+            <div class="cta__actions">
+              <a href="tel:+917610000654" class="btn btn--ghost" id="ctaCall">📞 Call +91 76100 00654</a>
+              <a class="btn btn--ghost wa-link" data-wa="Hi CleanNest! I'd like to book a cleaning." href="#">Book on WhatsApp</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -168,8 +195,9 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <span class="footer__logo">✨ CleanNest</span>
-        <p>Professional deep cleaning in Jalandhar — rated <strong style="color:#fff;">4.9/5</strong> on Google. Real employees, eco-friendly products, satisfaction guaranteed.</p>
+        <span class="nav__mark">✨</span>
+        <p>Professional deep cleaning in Jalandhar — real employees, eco-friendly products, satisfaction guaranteed.</p>
+        <p class="rating-line">⭐ Rated 4.9/5 on Google · 219 reviews</p>
       </div>
       <div class="footer__col">
         <h4>Our Services</h4>
@@ -177,7 +205,7 @@
         <a href="services.html#kitchen-deep-cleaning">Kitchen Deep Cleaning</a>
         <a href="services.html#bathroom-deep-cleaning">Bathroom Deep Cleaning</a>
         <a href="services.html#sofa-dry-cleaning">Sofa Dry Cleaning</a>
-        <a href="services.html#carpet-steam-cleaning">Carpet & Steam Cleaning</a>
+        <a href="services.html#carpet-steam-cleaning">Carpet &amp; Steam Cleaning</a>
         <a href="services.html#commercial-cleaning">Commercial Cleaning</a>
       </div>
       <div class="footer__col">
@@ -200,8 +228,8 @@
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <span id="footerAddress"></span><br />
-        We serve: <span id="footerCities"></span><br /><br />
+        <span id="footerAddress"></span>
+        <div class="footer__areas">We serve: <span id="footerCities"></span></div>
         © <span id="footerYear">2026</span> CleanNest, Jalandhar. All rights reserved. ·
         <a href="https://cleannest.in/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> ·
         <a href="https://cleannest.in/terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a> ·
@@ -210,13 +238,16 @@
     </div>
   </footer>
 
-  <!-- Sticky mobile call / WhatsApp bar -->
+  <!-- Floating WhatsApp -->
+  <a class="wa-float wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#" aria-label="Chat on WhatsApp">💬</a>
+
+  <!-- Sticky mobile bar -->
   <div class="sticky-bar">
     <a href="tel:+917610000654" class="btn btn--ghost" id="stickyCall">📞 Call</a>
     <a class="btn btn--wa wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">💬 WhatsApp</a>
   </div>
 
-  <!-- Toast for form feedback -->
+  <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 </body>

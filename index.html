@@ -6,6 +6,9 @@
   <title>Professional Cleaning Services in Jalandhar | CleanNest</title>
   <meta name="description" content="CleanNest — Jalandhar's trusted cleaning team. Deep cleaning for homes, offices and commercial spaces — trained teams, professional-grade equipment and quality products. Rated 4.9/5 on Google. Free quotes on WhatsApp." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/config.js" defer></script>
   <script src="js/script.js" defer></script>
@@ -14,9 +17,9 @@
 
   <!-- ======= NAVBAR ======= -->
   <header class="nav" id="navbar">
-    <div class="container nav__inner">
+    <div class="nav__inner">
       <a href="index.html" class="nav__brand">
-        <span class="nav__logo">✨</span>
+        <span class="nav__mark">✨</span>
         <span class="nav__name">CleanNest<span class="nav__name-sub">Cleaning Services</span></span>
       </a>
       <nav class="nav__links" id="navLinks">
@@ -26,7 +29,7 @@
         <a href="index.html#reviews">Reviews</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="book.html" class="btn btn--small nav__cta">Get Free Quote</a>
+        <a href="book.html" class="btn btn--primary btn--small nav__cta">Get Free Quote</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -37,120 +40,137 @@
   <main id="main">
     <!-- ======= HERO ======= -->
     <section class="hero" id="home">
+      <div class="hero__blob hero__blob--1"></div>
+      <div class="hero__blob hero__blob--2"></div>
       <div class="container hero__inner">
-        <div class="hero__content">
+        <div class="hero__content" data-reveal>
           <span class="hero__greeting">Sat Sri Akal 👋</span>
-          <p class="hero__badge">⭐ Rated <span id="heroRating">4.9</span>/5 by <span id="heroReviewCount">219+</span> happy clients</p>
-          <h1 class="hero__title">Your home deserves a <span class="accent">sparkle</span>.</h1>
+          <p class="hero__badge">
+            <span class="stars">★★★★★</span>
+            <span>4.9 on Google · <span id="heroRating">4.9</span>/5 · <span id="heroReviewCount">219+</span> reviews</span>
+          </p>
+          <h1 class="hero__title">Your home deserves a <span class="grad-text">sparkle</span>.</h1>
           <p class="hero__sub">Jalandhar's trusted cleaning team — professional deep cleaning for homes, offices and commercial spaces. Trained teams, professional-grade equipment and quality products.</p>
           <div class="hero__actions">
             <a href="#quote" class="btn btn--primary">Get Free Quote</a>
             <a class="btn btn--wa wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">💬 WhatsApp Us</a>
           </div>
           <ul class="hero__trust">
-            <li>9+ professional services</li>
-            <li>12 cities covered</li>
-            <li>Same-day quotes</li>
+            <li><span class="tic">✓</span>9+ professional services</li>
+            <li><span class="tic">✓</span>12 cities covered</li>
+            <li><span class="tic">✓</span>Same-day quotes</li>
           </ul>
         </div>
-        <div class="hero__visual">
-          <div class="hero__card hero__card--main">
-            <div class="hero__card-top">
-              <span class="hero__card-icon">🫧</span>
-              <span class="hero__card-title">Full House Cleaning</span>
-              <span class="hero__card-check">✓</span>
-            </div>
-            <ul class="hero__card-list">
-              <li><span>✓</span> Every room dusted & mopped</li>
-              <li><span>✓</span> Kitchen & bathroom included</li>
-              <li><span>✓</span> Deep steam & sanitising</li>
-              <li><span>✓</span> Grout, vents & fixtures</li>
-            </ul>
-            <div class="hero__card-foot">
-              <a class="hero__card-price wa-link" data-wa="Hi CleanNest! I'd like a quote for Full House Cleaning." href="#">Get a price →</a>
-            </div>
+        <div class="hero__visual" data-reveal="zoom">
+          <div class="hero__ring"></div>
+          <div class="hero__photo">
+            <img src="assets/img/hero-bright.jpg" alt="CleanNest professional deep cleaning a bright modern apartment in Jalandhar" width="1600" height="1067" fetchpriority="high" />
           </div>
-          <div class="hero__card hero__card--mini">
-            <span class="hero__mini-emoji">🧑‍🔧</span>
-            <div><strong>Trained & verified</strong><small>Real employees, checked in-house</small></div>
+          <div class="hero__card hero__card--1">
+            <span class="hero__chip-ic hero__chip-ic--teal"><svg><use href="assets/img/3d-sprite.svg#i-spray"></use></svg></span>
+            <div><strong>Sanitised</strong><small>EPA-grade, family-safe products</small></div>
           </div>
-          <div class="hero__card hero__card--mini hero__card--mini2">
-            <span class="hero__mini-emoji">🌿</span>
-            <div><strong>Eco-friendly</strong><small>Safe for family & pets</small></div>
+          <div class="hero__card hero__card--2">
+            <span class="hero__chip-ic hero__chip-ic--navy"><svg><use href="assets/img/3d-sprite.svg#i-shield"></use></svg></span>
+            <div><strong>Trained &amp; verified</strong><small>Real employees, checked in-house</small></div>
+          </div>
+          <div class="hero__card hero__card--3">
+            <span class="hero__chip-ic hero__chip-ic--amber"><svg><use href="assets/img/3d-sprite.svg#i-wa"></use></svg></span>
+            <div><strong>Quote in minutes</strong><small>Exact price, approved on WhatsApp</small></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======= QUOTE (WhatsApp form) ======= -->
-    <section class="section quote" id="quote">
-      <div class="container quote__inner">
-        <div class="quote__copy">
-          <p class="section__eyebrow">Free Quote</p>
-          <h2 class="section__title">Get your free quote on WhatsApp</h2>
-          <p class="section__lead">Tell us about your space and we'll send an honest, exact quote — usually within minutes. You approve it before we start.</p>
-          <ul class="quote__notes">
-            <li>No booking fee</li>
-            <li>No advance payment</li>
-            <li>Exact price approved on WhatsApp first</li>
-          </ul>
-          <p class="quote__notes" style="margin-top:22px;">Prefer to chat? <a class="wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#" style="color:#6fd4cb;font-weight:700;">WhatsApp us directly →</a></p>
+    <!-- ======= MARQUEE ======= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>4.9★ on Google · 219 reviews<span class="dot"></span></span>
+        <span class="marquee__item"><svg><use href="assets/img/3d-sprite.svg#i-shield"></use></svg>Trained Cleaning Team<span class="dot"></span></span>
+        <span class="marquee__item"><svg><use href="assets/img/3d-sprite.svg#i-spray"></use></svg>Professional Equipment<span class="dot"></span></span>
+        <span class="marquee__item"><svg><use href="assets/img/3d-sprite.svg#i-bubble"></use></svg>Eco-Friendly Products<span class="dot"></span></span>
+        <span class="marquee__item"><svg><use href="assets/img/3d-sprite.svg#i-building"></use></svg>Residential &amp; Commercial<span class="dot"></span></span>
+        <span class="marquee__item"><svg><use href="assets/img/3d-sprite.svg#i-calendar"></use></svg>Open 7 Days a Week<span class="dot"></span></span>
+        <span class="marquee__item"><svg><use href="assets/img/3d-sprite.svg#i-wa"></use></svg>Easy WhatsApp Booking<span class="dot"></span></span>
+      </div>
+    </div>
+
+    <!-- ======= QUOTE ======= -->
+    <section class="section" id="quote">
+      <div class="container">
+        <div class="quote" data-reveal="zoom">
+          <div class="quote__inner">
+            <div>
+              <p class="eyebrow">Free Quote</p>
+              <h2 class="section-title">Get your free quote on WhatsApp</h2>
+              <p class="section-lead">Tell us about your space and we'll send an honest, exact quote — usually within minutes. You approve it before we start.</p>
+              <ul class="quote__points">
+                <li><span class="tic">✓</span>No booking fee</li>
+                <li><span class="tic">✓</span>No advance payment</li>
+                <li><span class="tic">✓</span>Exact price approved on WhatsApp first</li>
+              </ul>
+              <p class="quote__chat">Prefer to chat? <a class="wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">WhatsApp us directly →</a></p>
+            </div>
+            <form class="quote__form" data-quote-form>
+              <h3 class="quote__form-title">Request your quote</h3>
+              <label class="field">
+                <span class="field__label">Your name <small style="color:var(--muted);font-weight:400;">(optional)</small></span>
+                <input type="text" data-q-name placeholder="Jane Smith" />
+              </label>
+              <label class="field">
+                <span class="field__label">WhatsApp number *</span>
+                <input type="tel" data-q-phone required placeholder="+91 98XXX XXXXX" />
+              </label>
+              <label class="field">
+                <span class="field__label">Service (optional)</span>
+                <select data-q-service>
+                  <option value="">Not sure — please advise</option>
+                  <option>Full House Cleaning</option>
+                  <option>Kitchen Deep Cleaning</option>
+                  <option>Bathroom Deep Cleaning</option>
+                  <option>Sofa Dry Cleaning</option>
+                  <option>Carpet &amp; Steam Cleaning</option>
+                  <option>Floor Renew</option>
+                  <option>AC Services</option>
+                  <option>Chimney Cleaning</option>
+                  <option>Commercial Cleaning</option>
+                </select>
+              </label>
+              <button type="submit" class="btn btn--primary btn--block">Get Free Quote →</button>
+              <p class="quote__form-note">Opens WhatsApp with your details pre-filled — no booking fee, no advance payment.</p>
+            </form>
+          </div>
         </div>
-        <form class="quote__form" data-quote-form>
-          <label class="field">
-            <span class="field__label">Your name <small style="color:var(--muted);font-weight:400;">(optional)</small></span>
-            <input type="text" data-q-name placeholder="Jane Smith" />
-          </label>
-          <label class="field">
-            <span class="field__label">WhatsApp number *</span>
-            <input type="tel" data-q-phone required placeholder="+91 98XXX XXXXX" />
-          </label>
-          <label class="field">
-            <span class="field__label">Service (optional)</span>
-            <select data-q-service>
-              <option value="">Not sure — please advise</option>
-              <option>Full House Cleaning</option>
-              <option>Kitchen Deep Cleaning</option>
-              <option>Bathroom Deep Cleaning</option>
-              <option>Sofa Dry Cleaning</option>
-              <option>Carpet & Steam Cleaning</option>
-              <option>Floor Renew</option>
-              <option>AC Services</option>
-              <option>Chimney Cleaning</option>
-              <option>Commercial Cleaning</option>
-            </select>
-          </label>
-          <button type="submit" class="btn btn--primary btn--block">Get Free Quote →</button>
-          <p class="quote__form-note">Opens WhatsApp with your details pre-filled — no booking fee, no advance payment.</p>
-        </form>
       </div>
     </section>
 
     <!-- ======= WHY CLEANNEST ======= -->
-    <section class="section" id="why">
+    <section class="section section--soft" id="why">
       <div class="container">
-        <p class="section__eyebrow">Why CleanNest</p>
-        <h2 class="section__title">Professional service, quality results — every time</h2>
-        <p class="section__lead">Trained, verified cleaners with professional-grade equipment and eco-friendly products. Quote approved before we start — no hidden charges, ever.</p>
-        <div class="grid grid--features">
-          <div class="feature">
-            <span class="feature__icon">🧑‍🔧</span>
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Why CleanNest</p>
+          <h2 class="section-title">Professional service, <span class="grad-text">quality results</span> — every time</h2>
+          <p class="section-lead">Trained, verified cleaners with professional-grade equipment and eco-friendly products. Quote approved before we start — no hidden charges, ever.</p>
+        </div>
+        <div class="grid--features">
+          <div class="feature" data-reveal>
+            <span class="feature__num">01</span>
             <h3>Trained Professionals</h3>
             <p>Trained, verified cleaners who treat your home with care.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">⚙️</span>
+          <div class="feature" data-reveal style="--d:.08s">
+            <span class="feature__num">02</span>
             <h3>Professional Equipment</h3>
             <p>Steam, extraction and sanitising machines — pro-grade results.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">🌿</span>
+          <div class="feature" data-reveal style="--d:.16s">
+            <span class="feature__num">03</span>
             <h3>Quality Cleaning Products</h3>
             <p>Eco-friendly products, safe for family, pets and home.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon">💬</span>
-            <h3>Transparent & Convenient</h3>
+          <div class="feature" data-reveal style="--d:.24s">
+            <span class="feature__num">04</span>
+            <h3>Transparent &amp; Convenient</h3>
             <p>Quote approved on WhatsApp first — no hidden charges, ever.</p>
           </div>
         </div>
@@ -158,33 +178,85 @@
     </section>
 
     <!-- ======= SERVICES ======= -->
-    <section class="section section--tint" id="services">
+    <section class="section" id="services">
       <div class="container">
-        <p class="section__eyebrow">Our Services</p>
-        <h2 class="section__title">Professional Cleaning Services</h2>
-        <p class="section__lead">Deep cleaning for homes, offices and commercial spaces — trained teams, professional-grade equipment and quality products.</p>
-        <div class="grid grid--services" id="servicesGrid"><!-- injected by script.js --></div>
-        <p style="text-align:center;margin-top:40px;"><a href="services.html" class="btn btn--ghost">View all services →</a></p>
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Our Services</p>
+          <h2 class="section-title">Professional Cleaning Services</h2>
+          <p class="section-lead">Deep cleaning for homes, offices and commercial spaces — trained teams, professional-grade equipment and quality products.</p>
+        </div>
+        <div class="grid--services" id="servicesGrid"><!-- injected by script.js --></div>
+        <p style="text-align:center;margin-top:44px;" data-reveal>
+          <a href="services.html" class="btn btn--ghost">View all services <span aria-hidden="true">→</span></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ======= BEFORE & AFTER ======= -->
+    <section class="section section--tint" id="results">
+      <div class="container">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Before &amp; After</p>
+          <h2 class="section-title">See the CleanNest difference</h2>
+          <p class="section-lead">Real cleaning. Real results. Drag the handle to reveal the sparkle.</p>
+        </div>
+        <div class="ba" data-reveal="zoom" role="slider" tabindex="0" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <div class="ba__img ba__before">
+            <img src="assets/img/gallery-living.jpg" alt="Living room before deep cleaning" width="1600" height="1067" loading="lazy" />
+          </div>
+          <div class="ba__img ba__after">
+            <img src="assets/img/gallery-living.jpg" alt="Living room after CleanNest deep cleaning" width="1600" height="1067" loading="lazy" />
+          </div>
+          <div class="ba__divider"><span class="ba__handle">⇔</span></div>
+          <span class="ba__tag ba__tag--before">Before</span>
+          <span class="ba__tag ba__tag--after">After</span>
+          <span class="ba__hint">Drag to reveal</span>
+        </div>
+        <div class="grid--ba" style="margin-top:22px;">
+          <div class="ba-mini" data-reveal role="slider" tabindex="0" aria-label="Kitchen before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <div class="ba__img ba__before"><img src="assets/img/gallery-kitchen.jpg" alt="Kitchen before deep cleaning" width="1600" height="1067" loading="lazy" /></div>
+            <div class="ba__img ba__after"><img src="assets/img/gallery-kitchen.jpg" alt="Kitchen after CleanNest deep cleaning" width="1600" height="1067" loading="lazy" /></div>
+            <div class="ba__divider"><span class="ba__handle">⇔</span></div>
+            <span class="ba__tag ba__tag--before">Before</span>
+            <span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba-mini" data-reveal style="--d:.1s" role="slider" tabindex="0" aria-label="Bedroom before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <div class="ba__img ba__before"><img src="assets/img/gallery-bedroom.jpg" alt="Bedroom before deep cleaning" width="1600" height="1067" loading="lazy" /></div>
+            <div class="ba__img ba__after"><img src="assets/img/gallery-bedroom.jpg" alt="Bedroom after CleanNest deep cleaning" width="1600" height="1067" loading="lazy" /></div>
+            <div class="ba__divider"><span class="ba__handle">⇔</span></div>
+            <span class="ba__tag ba__tag--before">Before</span>
+            <span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba-mini" data-reveal style="--d:.2s" role="slider" tabindex="0" aria-label="Dusting before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <div class="ba__img ba__before"><img src="assets/img/service-wipe.jpg" alt="Surface before deep cleaning" width="1600" height="1067" loading="lazy" /></div>
+            <div class="ba__img ba__after"><img src="assets/img/service-wipe.jpg" alt="Surface after CleanNest deep cleaning" width="1600" height="1067" loading="lazy" /></div>
+            <div class="ba__divider"><span class="ba__handle">⇔</span></div>
+            <span class="ba__tag ba__tag--before">Before</span>
+            <span class="ba__tag ba__tag--after">After</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ======= HOW IT WORKS ======= -->
     <section class="section" id="how">
       <div class="container">
-        <p class="section__eyebrow">Simple Booking</p>
-        <h2 class="section__title">Book your cleaning service in three simple steps</h2>
-        <div class="steps">
-          <div class="step reveal">
+        <div class="section-head center" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Simple Booking</p>
+          <h2 class="section-title">Book your clean in three simple steps</h2>
+        </div>
+        <div class="grid--steps">
+          <div class="step" data-reveal>
             <span class="step__num">01</span>
             <h3>Choose Your Service</h3>
             <p>Select the cleaning service you need — house, kitchen, bathroom, sofa, carpet, AC and more.</p>
           </div>
-          <div class="step reveal">
+          <div class="step" data-reveal style="--d:.1s">
             <span class="step__num">02</span>
             <h3>Get Your Quote</h3>
             <p>Contact CleanNest on WhatsApp and receive an exact service quote — approved by you before we start.</p>
           </div>
-          <div class="step reveal">
+          <div class="step" data-reveal style="--d:.2s">
             <span class="step__num">03</span>
             <h3>We Clean</h3>
             <p>Our team arrives on time and professionally cleans your space. Enjoy the sparkle!</p>
@@ -194,19 +266,24 @@
     </section>
 
     <!-- ======= REVIEWS ======= -->
-    <section class="section section--tint" id="reviews">
+    <section class="section section--soft" id="reviews">
       <div class="container">
-        <p class="section__eyebrow">Google Reviews</p>
-        <h2 class="section__title">Loved by our customers</h2>
-        <div class="reviews__summary">
-          <span class="reviews__score" id="reviewScore">4.9</span>
-          <span class="reviews__stars" id="reviewStars">★★★★★</span>
-          <span class="reviews__count" id="reviewCount">Based on 219 reviews</span>
-          <a class="reviews__gmb" id="reviewGmbLink" href="#" target="_blank" rel="noopener">See us on Google →</a>
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Google Reviews</p>
+          <h2 class="section-title">Loved by our customers</h2>
+          <p class="section-lead">Real feedback from real customers in Jalandhar.</p>
         </div>
-        <div class="grid grid--reviews" id="reviewsGrid"><!-- injected by script.js --></div>
-        <p style="text-align:center;margin-top:36px;">
-          <a class="btn btn--ghost btn--small" id="writeReviewLink" href="#" target="_blank" rel="noopener">Write a review →</a>
+        <div class="reviews__summary" data-reveal>
+          <span class="reviews__score" id="reviewScore">4.9</span>
+          <div>
+            <div class="reviews__stars" id="reviewStars">★★★★★</div>
+            <div class="reviews__count" id="reviewCount">Based on 219 reviews</div>
+          </div>
+          <a class="reviews__gmb" id="reviewGmbLink" href="#" target="_blank" rel="noopener">See us on Google <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="grid--reviews" id="reviewsGrid"><!-- injected by script.js --></div>
+        <p style="text-align:center;margin-top:36px;" data-reveal>
+          <a class="btn btn--ghost btn--small" id="writeReviewLink" href="#" target="_blank" rel="noopener">Write a review <span aria-hidden="true">→</span></a>
         </p>
       </div>
     </section>
@@ -214,23 +291,29 @@
     <!-- ======= SERVICE AREAS ======= -->
     <section class="section" id="areas">
       <div class="container">
-        <p class="section__eyebrow">Service Areas</p>
-        <h2 class="section__title">Serving Jalandhar & nearby areas</h2>
-        <p class="section__lead">Fast same-week service across Jalandhar and nearby cities. Not listed here? Message us — we cover most of Punjab.</p>
-        <div class="chips" id="citiesList"><!-- injected by script.js --></div>
-        <a href="contact.html" class="btn btn--primary">Check Availability →</a>
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-building"></use></svg>Service Areas</p>
+          <h2 class="section-title">Serving Jalandhar &amp; nearby areas</h2>
+          <p class="section-lead">Fast same-week service across Jalandhar and nearby cities. Not listed here? Message us — we cover most of Punjab.</p>
+        </div>
+        <div class="chips" id="citiesList" data-reveal><!-- injected by script.js --></div>
+        <a href="contact.html" class="btn btn--primary" data-reveal>Check Availability <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <!-- ======= CTA BANNER ======= -->
-    <section class="section cta">
+    <!-- ======= CTA ======= -->
+    <section class="section" id="cta">
       <div class="container">
-        <h2 class="cta__title">Ready for a Cleaner Space?</h2>
-        <p class="cta__sub">Message us now for a free quote — no booking fee, no advance payment.</p>
-        <div class="cta__actions">
-          <a href="book.html" class="btn btn--ghost">Get Free Quote →</a>
-          <a class="btn btn--ghost wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">WhatsApp Us</a>
-          <a href="tel:+917610000654" class="btn btn--ghost" id="ctaCall">📞 Call +91 76100 00654</a>
+        <div class="cta" data-reveal="zoom">
+          <div class="cta__inner">
+            <h2 class="cta__title">Ready for a Cleaner Space?</h2>
+            <p class="cta__sub">Message us now for a free quote — no booking fee, no advance payment.</p>
+            <div class="cta__actions">
+              <a href="book.html" class="btn btn--ghost">Get Free Quote <span aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">WhatsApp Us</a>
+              <a href="tel:+917610000654" class="btn btn--ghost" id="ctaCall">📞 Call +91 76100 00654</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -240,8 +323,9 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <span class="footer__logo">✨ CleanNest</span>
-        <p>Professional deep cleaning in Jalandhar — rated <strong style="color:#fff;">4.9/5</strong> on Google. Real employees, eco-friendly products, satisfaction guaranteed.</p>
+        <span class="nav__mark">✨</span>
+        <p>Professional deep cleaning in Jalandhar — real employees, eco-friendly products, satisfaction guaranteed.</p>
+        <p class="rating-line">⭐ Rated 4.9/5 on Google · 219 reviews</p>
       </div>
       <div class="footer__col">
         <h4>Our Services</h4>
@@ -249,7 +333,7 @@
         <a href="services.html#kitchen-deep-cleaning">Kitchen Deep Cleaning</a>
         <a href="services.html#bathroom-deep-cleaning">Bathroom Deep Cleaning</a>
         <a href="services.html#sofa-dry-cleaning">Sofa Dry Cleaning</a>
-        <a href="services.html#carpet-steam-cleaning">Carpet & Steam Cleaning</a>
+        <a href="services.html#carpet-steam-cleaning">Carpet &amp; Steam Cleaning</a>
         <a href="services.html#commercial-cleaning">Commercial Cleaning</a>
       </div>
       <div class="footer__col">
@@ -272,8 +356,8 @@
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <span id="footerAddress"></span><br />
-        We serve: <span id="footerCities"></span><br /><br />
+        <span id="footerAddress"></span>
+        <div class="footer__areas">We serve: <span id="footerCities"></span></div>
         © <span id="footerYear">2026</span> CleanNest, Jalandhar. All rights reserved. ·
         <a href="https://cleannest.in/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> ·
         <a href="https://cleannest.in/terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a> ·
@@ -282,13 +366,16 @@
     </div>
   </footer>
 
-  <!-- Sticky mobile call / WhatsApp bar -->
+  <!-- Floating WhatsApp -->
+  <a class="wa-float wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#" aria-label="Chat on WhatsApp">💬</a>
+
+  <!-- Sticky mobile bar -->
   <div class="sticky-bar">
     <a href="tel:+917610000654" class="btn btn--ghost" id="stickyCall">📞 Call</a>
     <a class="btn btn--wa wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">💬 WhatsApp</a>
   </div>
 
-  <!-- Toast for form feedback -->
+  <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 </body>

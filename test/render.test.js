@@ -54,11 +54,15 @@ console.log("--- index.html ---");
   check("WhatsApp links point to real number", firstWa && firstWa.getAttribute("href").startsWith(WA));
   check("9 service cards rendered", doc.querySelectorAll("#servicesGrid .service").length === 9);
   check("First service is Full House Cleaning", doc.querySelector("#servicesGrid .service__title").textContent === "Full House Cleaning");
+  check("Service icons use 3D sprite", doc.querySelector("#servicesGrid .service__icon svg use").getAttribute("href").includes("3d-sprite.svg#i-house"));
   check("Service card has get-a-price WhatsApp link", doc.querySelector("#servicesGrid .service__link--wa").getAttribute("href").startsWith(WA));
   check("3 review cards rendered", doc.querySelectorAll("#reviewsGrid .review").length === 3);
   check("Review stars render", doc.querySelector("#reviewsGrid .review__stars").textContent === "★★★★★");
   check("12 city chips rendered", doc.querySelectorAll("#citiesList .chip").length === 12);
   check("Footer cities filled", doc.getElementById("footerCities").textContent.includes("Ludhiana"));
+  check("Hero photo present", doc.querySelector(".hero__photo img").getAttribute("src") === "assets/img/hero-bright.jpg");
+  check("Before/after sliders present", doc.querySelectorAll(".ba, .ba-mini").length === 4);
+  check("Marquee track duplicated", doc.querySelectorAll(".marquee__item").length === 14);
 
   let openedUrl = null;
   doc.defaultView.open = (url) => { openedUrl = url; };
@@ -68,7 +72,6 @@ console.log("--- index.html ---");
   check("Quote form opens WhatsApp with real number", openedUrl && openedUrl.startsWith(WA));
   check("Quote message mentions free quote", openedUrl && decodeURIComponent(openedUrl).includes("free quote"));
 
-  openedUrl = null;
   check("Footer year is current", doc.getElementById("footerYear").textContent === String(new Date().getFullYear()));
   const navLinks = doc.getElementById("navLinks");
   doc.getElementById("navToggle").click();
@@ -85,7 +88,7 @@ console.log("--- services.html ---");
   check("4 package cards rendered", doc.querySelectorAll("#packagesGrid .pkg").length === 4);
   check("Deep Clean package flagged as popular", doc.querySelector(".pkg--hot .pkg__title").textContent === "Deep Clean");
   check("Package WhatsApp link works", doc.querySelector("#packagesGrid .pkg .btn").getAttribute("href").startsWith(WA));
-  check("Page hero shows rating badge", doc.querySelector(".page-hero__title").textContent.includes("Deep Cleaning Services"));
+  check("Page hero shows title", doc.querySelector(".page-hero__title").textContent.includes("Deep Cleaning Services"));
 }
 
 /* ================= ABOUT ================= */
@@ -93,11 +96,12 @@ console.log("--- about.html ---");
 {
   const doc = loadPage("about.html");
   check("About hero title correct", doc.querySelector(".page-hero__title").textContent === "About CleanNest");
-  check("Stats rendered (400+ homes)", doc.getElementById("statHomes").textContent === "400+");
-  check("Stats rendered (12 cities)", doc.getElementById("statCities").textContent === "12");
-  check("Stats rendered (4.9 rating)", doc.getElementById("statRating").textContent.includes("4.9"));
-  check("Stats rendered (7 days)", doc.getElementById("statDays").textContent === "7");
+  check("Stats: 400+ homes (counter config)", doc.querySelector('[data-count="400"]').getAttribute("data-suffix") === "+");
+  check("Stats: 12 cities (counter config)", doc.querySelector('[data-count="12"]') !== null);
+  check("Stats: 4.9 rating (counter config)", doc.querySelector('[data-count="4.9"]').getAttribute("data-decimals") === "1");
+  check("Stats: 7 days (counter config)", doc.querySelector('[data-count="7"]') !== null);
   check("3 review cards rendered", doc.querySelectorAll("#reviewsGrid .review").length === 3);
+  check("Team photos present", doc.querySelectorAll("img[src^='assets/img/team-']").length === 4);
 }
 
 /* ================= CONTACT ================= */
@@ -138,9 +142,9 @@ console.log("--- book.html ---");
   const doc = loadPage("book.html");
   check("Booking hero correct", doc.querySelector(".page-hero__title").textContent === "Book a Cleaning");
   check("11 service options in booking select", doc.querySelectorAll("#bkService option").length === 11);
-  const howSteps = doc.querySelectorAll("#main .steps");
-  check("5 how-it-works steps rendered", howSteps.length === 2 && howSteps[1].querySelectorAll(".step").length === 5);
-  check("3 what-happens-next steps rendered", howSteps[0].querySelectorAll(".step").length === 3);
+  const steps = doc.querySelectorAll("#main .grid--steps");
+  check("3 what-happens-next steps rendered", steps[0].querySelectorAll(".step").length === 3);
+  check("6 how-it-works steps rendered", steps[1].querySelectorAll(".step").length === 6);
 
   let openedUrl = null;
   doc.defaultView.open = (url) => { openedUrl = url; };

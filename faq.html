@@ -6,6 +6,9 @@
   <title>Cleaning FAQ — Products, Booking & Quotes | CleanNest</title>
   <meta name="description" content="Frequently asked questions about CleanNest deep cleaning in Jalandhar — eco-friendly products, safety for kids & pets, booking & payment, what's included in a deep clean, pricing and more." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/config.js" defer></script>
   <script src="js/script.js" defer></script>
@@ -14,9 +17,9 @@
 
   <!-- ======= NAVBAR ======= -->
   <header class="nav" id="navbar">
-    <div class="container nav__inner">
+    <div class="nav__inner">
       <a href="index.html" class="nav__brand">
-        <span class="nav__logo">✨</span>
+        <span class="nav__mark">✨</span>
         <span class="nav__name">CleanNest<span class="nav__name-sub">Cleaning Services</span></span>
       </a>
       <nav class="nav__links" id="navLinks">
@@ -26,7 +29,7 @@
         <a href="index.html#reviews">Reviews</a>
         <a href="faq.html" aria-current="page">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="book.html" class="btn btn--small nav__cta">Get Free Quote</a>
+        <a href="book.html" class="btn btn--primary btn--small nav__cta">Get Free Quote</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -38,9 +41,9 @@
     <!-- ======= PAGE HERO ======= -->
     <section class="page-hero">
       <div class="container">
-        <p class="hero__badge">⭐ 4.9 on Google · <span id="heroReviewCount">219+</span> reviews</p>
-        <h1 class="page-hero__title">Frequently Asked Questions</h1>
-        <p class="page-hero__lead">Everything you need to know about our cleaning approach, booking and guarantee.</p>
+        <p class="hero__badge" data-reveal><span class="stars">★★★★★</span> 4.9 on Google · <span id="heroReviewCount">219+</span> reviews</p>
+        <h1 class="page-hero__title" data-reveal>Frequently Asked Questions</h1>
+        <p class="page-hero__lead" data-reveal style="--d:.08s">Everything you need to know about our cleaning approach, booking and guarantee.</p>
       </div>
     </section>
 
@@ -48,57 +51,65 @@
     <section class="section">
       <div class="container container--narrow">
         <div class="faq" id="faqList"><!-- injected by script.js --></div>
-        <div style="text-align:center;margin-top:40px;">
-          <p class="section__lead" style="margin-bottom:16px;">Still have a question?</p>
+        <div style="text-align:center;margin-top:44px;" data-reveal>
+          <p class="section-lead" style="margin-bottom:16px;">Still have a question?</p>
           <a class="btn btn--wa wa-link" data-wa="Hi CleanNest! I have a question." href="#">Ask us on WhatsApp</a>
         </div>
       </div>
     </section>
 
-    <!-- ======= CLEANING GUIDES ======= -->
-    <section class="section section--tint" id="guides">
+    <!-- ======= GUIDES ======= -->
+    <section class="section section--soft" id="guides">
       <div class="container">
-        <p class="section__eyebrow">Cleaning Guides</p>
-        <h2 class="section__title">Popular articles from our blog</h2>
-        <p class="section__lead">Deeper answers — practical cleaning guides for Jalandhar homes and offices.</p>
-        <div class="guides">
-          <a class="guide" href="https://cleannest.in/blog/house-deep-cleaning-cost-jalandhar.html" target="_blank" rel="noopener">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><svg><use href="assets/img/3d-sprite.svg#i-spark"></use></svg>Cleaning Guides</p>
+          <h2 class="section-title">Popular articles from our blog</h2>
+          <p class="section-lead">Deeper answers — practical cleaning guides for Jalandhar homes and offices.</p>
+        </div>
+        <div class="grid--guides">
+          <a class="guide" href="https://cleannest.in/blog/house-deep-cleaning-cost-jalandhar.html" target="_blank" rel="noopener" data-reveal>
             <span class="guide__tag">Guide</span>
             <h3>How Much Does House Deep Cleaning Cost in Jalandhar?</h3>
             <p>What affects the price, typical ranges by home size, and how to get an exact free quote.</p>
             <span class="guide__link">Read →</span>
           </a>
-          <a class="guide" href="https://cleannest.in/blog/how-often-deep-clean-home.html" target="_blank" rel="noopener">
+          <a class="guide" href="https://cleannest.in/blog/how-often-deep-clean-home.html" target="_blank" rel="noopener" data-reveal style="--d:.08s">
             <span class="guide__tag">Guide</span>
             <h3>How Often Should You Deep Clean Your Home?</h3>
             <p>A room-by-room schedule for kitchens, bathrooms, sofas, carpets and ACs.</p>
             <span class="guide__link">Read →</span>
           </a>
-          <a class="guide" href="https://cleannest.in/blog/sofa-dry-cleaning-vs-steam-cleaning.html" target="_blank" rel="noopener">
+          <a class="guide" href="https://cleannest.in/blog/sofa-dry-cleaning-vs-steam-cleaning.html" target="_blank" rel="noopener" data-reveal style="--d:.16s">
             <span class="guide__tag">Guide</span>
             <h3>Sofa Dry Cleaning vs Steam Cleaning: Which Is Better?</h3>
             <p>Drying time, stain removal and what's safest for your fabric — compared honestly.</p>
             <span class="guide__link">Read →</span>
           </a>
-          <a class="guide" href="https://cleannest.in/blog/how-to-choose-cleaning-service-jalandhar.html" target="_blank" rel="noopener">
+          <a class="guide" href="https://cleannest.in/blog/how-to-choose-cleaning-service-jalandhar.html" target="_blank" rel="noopener" data-reveal style="--d:.24s">
             <span class="guide__tag">Guide</span>
             <h3>How to Choose a Cleaning Service in Jalandhar</h3>
             <p>7 questions to ask before booking — reviews, verified staff and transparent pricing.</p>
             <span class="guide__link">Read →</span>
           </a>
         </div>
-        <p style="text-align:center;margin-top:36px;"><a class="btn btn--ghost" href="https://cleannest.in/blog.html" target="_blank" rel="noopener">View all 30 guides →</a></p>
+        <p style="text-align:center;margin-top:36px;" data-reveal>
+          <a class="btn btn--ghost" href="https://cleannest.in/blog.html" target="_blank" rel="noopener">View all 30 guides <span aria-hidden="true">→</span></a>
+        </p>
       </div>
     </section>
 
     <!-- ======= CTA ======= -->
-    <section class="section cta">
+    <section class="section" style="padding-top:0;">
       <div class="container">
-        <h2 class="cta__title">Got everything you need? Book your clean</h2>
-        <p class="cta__sub">Free quote on WhatsApp — no booking fee, no advance payment.</p>
-        <div class="cta__actions">
-          <a href="tel:+917610000654" class="btn btn--ghost" id="ctaCall">📞 Call +91 76100 00654</a>
-          <a class="btn btn--ghost wa-link" data-wa="Hi CleanNest! I'd like to book a cleaning." href="#">Book on WhatsApp</a>
+        <div class="cta" data-reveal="zoom">
+          <div class="cta__inner">
+            <h2 class="cta__title">Got everything you need? Book your clean</h2>
+            <p class="cta__sub">Free quote on WhatsApp — no booking fee, no advance payment.</p>
+            <div class="cta__actions">
+              <a href="tel:+917610000654" class="btn btn--ghost" id="ctaCall">📞 Call +91 76100 00654</a>
+              <a class="btn btn--ghost wa-link" data-wa="Hi CleanNest! I'd like to book a cleaning." href="#">Book on WhatsApp</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -108,8 +119,9 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <span class="footer__logo">✨ CleanNest</span>
-        <p>Professional deep cleaning in Jalandhar — rated <strong style="color:#fff;">4.9/5</strong> on Google. Real employees, eco-friendly products, satisfaction guaranteed.</p>
+        <span class="nav__mark">✨</span>
+        <p>Professional deep cleaning in Jalandhar — real employees, eco-friendly products, satisfaction guaranteed.</p>
+        <p class="rating-line">⭐ Rated 4.9/5 on Google · 219 reviews</p>
       </div>
       <div class="footer__col">
         <h4>Our Services</h4>
@@ -117,7 +129,7 @@
         <a href="services.html#kitchen-deep-cleaning">Kitchen Deep Cleaning</a>
         <a href="services.html#bathroom-deep-cleaning">Bathroom Deep Cleaning</a>
         <a href="services.html#sofa-dry-cleaning">Sofa Dry Cleaning</a>
-        <a href="services.html#carpet-steam-cleaning">Carpet & Steam Cleaning</a>
+        <a href="services.html#carpet-steam-cleaning">Carpet &amp; Steam Cleaning</a>
         <a href="services.html#commercial-cleaning">Commercial Cleaning</a>
       </div>
       <div class="footer__col">
@@ -140,8 +152,8 @@
     </div>
     <div class="footer__bottom">
       <div class="container">
-        <span id="footerAddress"></span><br />
-        We serve: <span id="footerCities"></span><br /><br />
+        <span id="footerAddress"></span>
+        <div class="footer__areas">We serve: <span id="footerCities"></span></div>
         © <span id="footerYear">2026</span> CleanNest, Jalandhar. All rights reserved. ·
         <a href="https://cleannest.in/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> ·
         <a href="https://cleannest.in/terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a> ·
@@ -150,13 +162,16 @@
     </div>
   </footer>
 
-  <!-- Sticky mobile call / WhatsApp bar -->
+  <!-- Floating WhatsApp -->
+  <a class="wa-float wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#" aria-label="Chat on WhatsApp">💬</a>
+
+  <!-- Sticky mobile bar -->
   <div class="sticky-bar">
     <a href="tel:+917610000654" class="btn btn--ghost" id="stickyCall">📞 Call</a>
     <a class="btn btn--wa wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">💬 WhatsApp</a>
   </div>
 
-  <!-- Toast for form feedback -->
+  <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 </body>

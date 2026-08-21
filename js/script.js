@@ -1,13 +1,15 @@
 /* ============================================================
    CLEANNEST — PROFESSIONAL CLEANING SERVICES, JALANDHAR
-   All interactivity: content injection from config.js,
-   WhatsApp quote + booking forms, FAQ, nav, reveals.
+   Wiring: config injection, WhatsApp quote/booking, FAQ, nav.
+   Motion: scroll reveals, counters, before/after sliders,
+   marquee, hero parallax.
    ============================================================ */
 
 (function () {
   "use strict";
 
   var CFG = window.CLEANNEST_CONFIG || {};
+  var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- Small helpers ---------- */
   function $(sel, root) { return (root || document).querySelector(sel); }
@@ -20,6 +22,9 @@
   function stars(n) {
     n = Math.max(0, Math.min(5, Math.round(n || 5)));
     return "★".repeat(n) + "☆".repeat(5 - n);
+  }
+  function spriteIcon(name) {
+    return '<svg aria-hidden="true"><use href="assets/img/3d-sprite.svg#i-' + esc(name) + '"></use></svg>';
   }
 
   /* ---------- Toast ---------- */
@@ -34,10 +39,13 @@
   }
 
   /* ---------- WhatsApp ---------- */
+  function waHref(text) {
+    return "https://wa.me/" + (CFG.whatsappNumber || "").replace(/\D/g, "") + "?text=" + encodeURIComponent(text);
+  }
   function openChat(text) {
     var number = (CFG.whatsappNumber || CFG.phoneHref || "").replace(/\D/g, "");
     if (number) {
-      window.open("https://wa.me/" + number + "?text=" + encodeURIComponent(text), "_blank");
+      window.open(waHref(text), "_blank");
       showToast("Opening WhatsApp — just hit send!");
     } else {
       var mailto = "mailto:" + (CFG.email || "") + "?subject=" + encodeURIComponent("Booking request — CleanNest") + "&body=" + encodeURIComponent(text);
@@ -45,14 +53,8 @@
       showToast("Opening your email app…");
     }
   }
-
   function serviceQuoteMessage(serviceTitle) {
     return "Hi CleanNest! I'd like a quote for " + (serviceTitle || "cleaning") + ".";
-  }
-
-  /* Build a wa.me link with a pre-filled message (safe to use in injected HTML). */
-  function waHref(text) {
-    return "https://wa.me/" + (CFG.whatsappNumber || "").replace(/\D/g, "") + "?text=" + encodeURIComponent(text);
   }
 
   /* ---------- 1. Inject business details from config ---------- */
@@ -68,7 +70,7 @@
       if (el.id === "contactPhone" || el.id === "footerPhone") el.textContent = phoneDisplay;
     });
 
-    // WhatsApp links (plain anchors with class wa-link)
+    // WhatsApp links
     $$(".wa-link").forEach(function (el) {
       var t = el.getAttribute("data-wa") || "Hi CleanNest! I'd like a free quote for cleaning.";
       el.setAttribute("href", waHref(t));
@@ -82,7 +84,7 @@
       el.textContent = email;
     });
 
-    // Instagram links
+    // Instagram
     $$("#contactInstagram, #footerInstagram").forEach(function (el) {
       el.setAttribute("href", CFG.instagramUrl || "#");
       if (el.id === "footerInstagram") el.textContent = CFG.instagramHandle || "Instagram";
@@ -104,7 +106,6 @@
     // Rating
     var score = CFG.rating ? CFG.rating.score : "5.0";
     var count = CFG.rating ? CFG.rating.reviewCount : 0;
-    var starCount = CFG.rating ? Math.max(0, Math.min(5, Math.round(CFG.rating.max || 5))) : 5;
 
     var heroRating = $("#heroRating");
     if (heroRating) heroRating.textContent = score;
@@ -114,7 +115,7 @@
     var reviewScore = $("#reviewScore");
     if (reviewScore) reviewScore.textContent = score;
     var reviewStars = $("#reviewStars");
-    if (reviewStars) reviewStars.textContent = stars(starCount);
+    if (reviewStars) reviewStars.textContent = stars(CFG.rating ? CFG.rating.max : 5);
     var reviewCount = $("#reviewCount");
     if (reviewCount) reviewCount.textContent = "Based on " + count + " reviews";
 
@@ -130,26 +131,26 @@
     if (hoursNote && CFG.hoursNote) hoursNote.textContent = CFG.hoursNote;
   }
 
-  /* ---------- 2. Render services ---------- */
+  /* ---------- 2. Service cards ---------- */
   function iconFor(key) {
     var icons = {
-      house: "🏠", kitchen: "🍳", bathroom: "🛁", sofa: "🛋️",
-      carpet: "🧹", floor: "🪣", ac: "❄️", chimney: "🔥",
-      commercial: "🏢", default: "🧽"
+      house: "house", kitchen: "kitchen", bathroom: "bath", sofa: "sofa",
+      carpet: "carpet", floor: "floor", ac: "ac", chimney: "chimney",
+      commercial: "building"
     };
-    return icons[key] || icons.default;
+    return icons[key] || "spark";
   }
 
-  function serviceCard(s) {
+  function serviceCard(s, i) {
     var wa = waHref(serviceQuoteMessage(s.title));
     return (
-      '<article class="service reveal" id="' + esc(s.id) + '">' +
-        '<div class="service__icon">' + iconFor(s.icon) + '</div>' +
+      '<article class="service" data-reveal style="--d:' + (i * 0.07) + 's" id="' + esc(s.id) + '">' +
+        '<div class="service__icon">' + spriteIcon(iconFor(s.icon)) + '</div>' +
         '<h3 class="service__title">' + esc(s.title) + '</h3>' +
         '<p class="service__desc">' + esc(s.desc) + '</p>' +
         '<div class="service__foot">' +
           '<a class="service__link service__link--wa" href="' + wa + '" target="_blank" rel="noopener">Get a price</a>' +
-          '<a class="service__link" href="services.html#' + esc(s.id) + '">Details →</a>' +
+          '<a class="service__link" href="services.html#' + esc(s.id) + '">Details <span aria-hidden="true">→</span></a>' +
         '</div>' +
       '</article>'
     );
@@ -161,19 +162,19 @@
     grid.innerHTML = (CFG.services || []).map(serviceCard).join("");
   }
 
-  /* ---------- 3. Render detailed service blocks (services page) ---------- */
+  /* ---------- 3. Service detail blocks (services page) ---------- */
   function renderServiceDetails() {
     var wrap = $("#serviceDetails");
     if (!wrap) return;
     wrap.innerHTML = (CFG.services || []).map(function (s, i) {
       var bullets = (s.bullets || []).map(function (b) {
-        return '<li><span>✓</span>' + esc(b) + '</li>';
+        return '<li><span class="tic">✓</span>' + esc(b) + '</li>';
       }).join("");
       var wa = waHref(serviceQuoteMessage(s.title));
       return (
-        '<article class="svc reveal" id="' + esc(s.id) + '">' +
+        '<article class="svc" data-reveal style="--d:' + (i * 0.05) + 's" id="' + esc(s.id) + '">' +
           '<div class="svc__head">' +
-            '<span class="service__icon">' + iconFor(s.icon) + '</span>' +
+            '<span class="service__icon">' + spriteIcon(iconFor(s.icon)) + '</span>' +
             '<div><h3 class="svc__title">' + esc(s.title) + '</h3>' +
             '<p class="svc__desc">' + esc(s.desc) + '</p></div>' +
           '</div>' +
@@ -188,20 +189,20 @@
     }).join("");
   }
 
-  /* ---------- 3b. Render packages (services page) ---------- */
+  /* ---------- 4. Packages (services page) ---------- */
   function renderPackages() {
     var wrap = $("#packagesGrid");
     if (!wrap) return;
-    wrap.innerHTML = (CFG.packages || []).map(function (p) {
+    wrap.innerHTML = (CFG.packages || []).map(function (p, i) {
       var bullets = (p.bullets || []).map(function (b) {
-        return '<li><span>✓</span>' + esc(b) + '</li>';
+        return '<li><span class="tic">✓</span>' + esc(b) + '</li>';
       }).join("");
       var wa = waHref("Hi CleanNest! I'd like a quote for the " + p.title + " package.");
       return (
-        '<article class="pkg reveal' + (p.tag ? " pkg--hot" : "") + '">' +
+        '<article class="pkg' + (p.tag ? " pkg--hot" : "") + '" data-reveal style="--d:' + (i * 0.08) + 's">' +
           (p.tag ? '<span class="pkg__tag">' + esc(p.tag) + '</span>' : '') +
           '<h3 class="pkg__title">' + esc(p.title) + '</h3>' +
-          '<p class="pkg__price">Quote on WhatsApp</p>' +
+          '<span class="pkg__price">Quote on WhatsApp</span>' +
           '<ul class="pkg__bullets">' + bullets + '</ul>' +
           '<a class="btn btn--primary btn--block btn--small" href="' + wa + '" target="_blank" rel="noopener">Get a price →</a>' +
         '</article>'
@@ -209,17 +210,16 @@
     }).join("");
   }
 
-  /* ---------- 4. Render reviews ---------- */
+  /* ---------- 5. Reviews ---------- */
   function renderReviews() {
     var grid = $("#reviewsGrid");
     if (!grid) return;
-    var reviews = CFG.reviews || [];
-    grid.innerHTML = reviews.map(function (r) {
+    grid.innerHTML = (CFG.reviews || []).map(function (r, i) {
       var initials = (r.name || "? ").trim().split(/\s+/).map(function (w) { return w[0]; }).join("").slice(0, 2).toUpperCase();
       return (
-        '<article class="review reveal">' +
+        '<article class="review" data-reveal style="--d:' + (i * 0.09) + 's">' +
           '<div class="review__stars">' + stars(r.stars) + '</div>' +
-          '<p class="review__text">“' + esc(r.text) + '”</p>' +
+          '<p class="review__text">' + esc(r.text) + '</p>' +
           '<div class="review__who">' +
             '<span class="review__avatar">' + esc(initials) + '</span>' +
             '<div><div class="review__name">' + esc(r.name) + '</div>' +
@@ -230,16 +230,15 @@
     }).join("");
   }
 
-  /* ---------- 5. Render FAQ accordion ---------- */
+  /* ---------- 6. FAQ accordion ---------- */
   function renderFaq() {
     var list = $("#faqList");
     if (!list) return;
-    var faqs = CFG.faqs || [];
-    list.innerHTML = faqs.map(function (f, i) {
+    list.innerHTML = (CFG.faqs || []).map(function (f, i) {
       return (
-        '<div class="faq__item reveal" data-open="false">' +
+        '<div class="faq__item" data-reveal style="--d:' + (i * 0.05) + 's" data-open="false">' +
           '<button class="faq__q" aria-expanded="false" aria-controls="faq-a-' + i + '">' +
-            esc(f.q) + '<span class="faq__icon">+</span>' +
+            '<span>' + esc(f.q) + '</span><span class="faq__icon">+</span>' +
           '</button>' +
           '<div class="faq__a" id="faq-a-' + i + '"><div class="faq__a-inner">' + esc(f.a) + '</div></div>' +
         '</div>'
@@ -251,7 +250,6 @@
         var item = btn.closest(".faq__item");
         var isOpen = item.getAttribute("data-open") === "true";
         var answer = btn.nextElementSibling;
-        // close others
         $$(".faq__item", list).forEach(function (other) {
           if (other !== item) {
             other.setAttribute("data-open", "false");
@@ -266,7 +264,7 @@
     });
   }
 
-  /* ---------- 6. Render hours ---------- */
+  /* ---------- 7. Hours ---------- */
   function renderHours() {
     var list = $("#hoursList");
     if (!list || !CFG.hours) return;
@@ -275,7 +273,7 @@
     }).join("");
   }
 
-  /* ---------- 7. Render cities chips ---------- */
+  /* ---------- 8. Cities ---------- */
   function renderCities() {
     var wrap = $("#citiesList");
     if (wrap) {
@@ -287,7 +285,7 @@
     if (footerCities) footerCities.textContent = (CFG.cities || []).join(" · ");
   }
 
-  /* ---------- 8. Render stats (about page) ---------- */
+  /* ---------- 9. Stats ---------- */
   function renderStats() {
     var st = CFG.stats || {};
     var map = {
@@ -302,7 +300,7 @@
     });
   }
 
-  /* ---------- 9. Quote form (hero / contact) → WhatsApp ---------- */
+  /* ---------- 10. Quote forms → WhatsApp ---------- */
   function wireQuoteForms() {
     $$("[data-quote-form]").forEach(function (form) {
       form.addEventListener("submit", function (ev) {
@@ -327,11 +325,10 @@
     });
   }
 
-  /* ---------- 10. Booking form → WhatsApp ---------- */
+  /* ---------- 11. Booking form → WhatsApp ---------- */
   function wireBooking() {
     var form = $("#bookingForm");
     if (!form) return;
-
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var name = $("#bkName").value.trim();
@@ -360,7 +357,7 @@
     });
   }
 
-  /* ---------- 11. Navbar scroll + mobile toggle ---------- */
+  /* ---------- 12. Navbar ---------- */
   function wireNav() {
     var nav = $("#navbar");
     if (!nav) return;
@@ -386,25 +383,116 @@
     });
   }
 
-  /* ---------- 12. Reveal-on-scroll ---------- */
+  /* ---------- 13. Scroll reveals ---------- */
   function wireReveals() {
-    var items = $$(".reveal");
-    if (!("IntersectionObserver" in window)) {
-      items.forEach(function (el) { el.classList.add("reveal--visible"); });
+    var items = $$("[data-reveal]");
+    if (!("IntersectionObserver" in window) || REDUCED) {
+      items.forEach(function (el) { el.classList.add("revealed"); });
       return;
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add("reveal--visible");
+          entry.target.classList.add("revealed");
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     items.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- 13. Footer year ---------- */
+  /* ---------- 14. Count-up animation ---------- */
+  function wireCounters() {
+    var els = $$("[data-count]");
+    if (!els.length || REDUCED) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        io.unobserve(el);
+        var target = parseFloat(el.getAttribute("data-count"));
+        var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+        var suffix = el.getAttribute("data-suffix") || "";
+        var dur = 1400, start = null;
+        function tick(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = (target * eased).toFixed(decimals) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- 15. Before/After sliders ---------- */
+  function wireBaSliders() {
+    $$(".ba, .ba-mini").forEach(function (root) {
+      var divider = root.querySelector(".ba__divider") || root;
+      var after = root.querySelector(".ba__after");
+      var position = 50;
+      function setPos(x) {
+        var rect = root.getBoundingClientRect();
+        if (!rect.width) return;
+        var pct = ((x - rect.left) / rect.width) * 100;
+        position = Math.max(4, Math.min(96, pct));
+        if (after) after.style.clipPath = "inset(0 0 0 " + position + "%)";
+        if (divider) divider.style.left = position + "%";
+      }
+      function onDown(ev) {
+        ev.preventDefault();
+        var move = function (e) {
+          var x = e.touches ? e.touches[0].clientX : e.clientX;
+          setPos(x);
+        };
+        var up = function () {
+          document.removeEventListener("mousemove", move);
+          document.removeEventListener("mouseup", up);
+          document.removeEventListener("touchmove", move);
+          document.removeEventListener("touchend", up);
+        };
+        document.addEventListener("mousemove", move);
+        document.addEventListener("mouseup", up);
+        document.addEventListener("touchmove", move, { passive: true });
+        document.addEventListener("touchend", up);
+      }
+      root.addEventListener("mousedown", onDown);
+      root.addEventListener("touchstart", onDown, { passive: true });
+    });
+  }
+
+  /* ---------- 16. Marquee (duplicate for seamless loop) ---------- */
+  function wireMarquee() {
+    $$(".marquee__track").forEach(function (track) {
+      track.innerHTML += track.innerHTML;
+    });
+  }
+
+  /* ---------- 17. Hero parallax ---------- */
+  function wireParallax() {
+    var visual = $(".hero__visual");
+    if (!visual || REDUCED) return;
+    var cards = $$(".hero__card", visual);
+    var ticking = false;
+    window.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y < window.innerHeight) {
+          visual.style.transform = "translateY(" + y * 0.06 + "px)";
+          cards.forEach(function (c, i) {
+            c.style.transform = "translateY(" + y * (0.1 + i * 0.04) + "px)";
+          });
+        }
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
+  /* ---------- 18. Footer year ---------- */
   function setYear() {
     var el = $("#footerYear");
     if (el) el.textContent = new Date().getFullYear();
@@ -425,6 +513,10 @@
     wireBooking();
     wireNav();
     wireReveals();
+    wireCounters();
+    wireBaSliders();
+    wireMarquee();
+    wireParallax();
     setYear();
   });
 })();
