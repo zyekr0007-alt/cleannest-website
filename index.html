@@ -369,11 +369,15 @@
   <!-- Floating WhatsApp -->
   <a class="wa-float wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#" aria-label="Chat on WhatsApp">💬</a>
 
-  <!-- Sticky mobile bar -->
-  <div class="sticky-bar">
-    <a href="tel:+917610000654" class="btn btn--ghost" id="stickyCall">📞 Call</a>
-    <a class="btn btn--wa wa-link" data-wa="Hi CleanNest! I'd like a free quote for cleaning." href="#">💬 WhatsApp</a>
-  </div>
+  <!-- App-style floating glass dock -->
+  <nav class="app-dock" aria-label="Primary navigation">
+    <a class="dock__item dock__item--active" href="index.html" aria-label="Home"><span class="dock__ic"><svg><use href="assets/img/3d-sprite.svg#i-house"></use></svg></span><span>Home</span><span class="dock__dot"></span></a>
+    <a class="dock__item " href="services.html" aria-label="Services"><span class="dock__ic"><svg><use href="assets/img/3d-sprite.svg#i-spray"></use></svg></span><span>Services</span><span class="dock__dot"></span></a>
+    <a class="dock__item " href="about.html" aria-label="About"><span class="dock__ic"><svg><use href="assets/img/3d-sprite.svg#i-shield"></use></svg></span><span>About</span><span class="dock__dot"></span></a>
+    <a class="dock__book " href="book.html" aria-label="Book a cleaning"><span class="dock__book-btn">✨</span><span>Book</span></a>
+    <a class="dock__item " href="faq.html" aria-label="FAQ"><span class="dock__ic"><svg><use href="assets/img/3d-sprite.svg#i-bubble"></use></svg></span><span>FAQ</span><span class="dock__dot"></span></a>
+    <a class="dock__item " href="contact.html" aria-label="Contact"><span class="dock__ic"><svg><use href="assets/img/3d-sprite.svg#i-wa"></use></svg></span><span>Contact</span><span class="dock__dot"></span></a>
+  </nav>
 
   <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
