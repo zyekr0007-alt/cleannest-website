@@ -1,0 +1,14 @@
+{
+  "name": "cleannest-website",
+  "version": "1.0.0",
+  "description": "Cleannest – Deep Cleaning Services website (plain HTML/CSS/JS)",
+  "private": true,
+  "scripts": {
+    "test": "node test/render.test.js",
+    "serve": "serve . -l 8000"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0",
+    "serve": "^14.2.6"
+  }
+}
