@@ -258,5 +258,12 @@ window.CLEANNEST_CONFIG = {
       q: "How is the price decided?",
       a: "Every home is different, so every job is quoted individually — based on the size of the space, its condition and the services you need. You get an exact price on WhatsApp and approve it before we start. No hidden charges, ever."
     }
-  ]
+  ],
+
+  /* ---- Analytics ----
+     Paste your GA4 Measurement ID (starts with G-). Analytics + WhatsApp/call
+     click tracking activate automatically once a valid ID is present. */
+  analytics: {
+    ga4Id: ""   // <- e.g. "G-ABC123XYZ"
+  }
 };

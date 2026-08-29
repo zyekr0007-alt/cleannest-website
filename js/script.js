@@ -45,6 +45,7 @@
   function openChat(text) {
     var number = (CFG.whatsappNumber || CFG.phoneHref || "").replace(/\D/g, "");
     if (number) {
+      track("whatsapp_click", { page_path: location.pathname, page_title: document.title, source: "form" });
       window.open(waHref(text), "_blank");
       showToast("Opening WhatsApp — just hit send!");
     } else {
@@ -498,6 +499,34 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  /* ---------- 19. Analytics (GA4) + conversion tracking ---------- */
+  function track(name, params) {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, params || {});
+    }
+  }
+  function initAnalytics() {
+    var id = (CFG.analytics && CFG.analytics.ga4Id) || "";
+    if (!/^G-[A-Z0-9]{6,}$/.test(id)) return;   // no valid GA4 ID -> stay inert
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", id);
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+    document.head.appendChild(s);
+  }
+  function wireTracking() {
+    document.addEventListener("click", function (e) {
+      var wa = e.target.closest("a.wa-link, a.wa-float, a[href^='https://wa.me/']");
+      if (wa) track("whatsapp_click", { page_path: location.pathname, page_title: document.title, source: "link" });
+      var tel = e.target.closest("a[href^='tel:']");
+      if (tel) track("call_click", { page_path: location.pathname });
+    });
+  }
+
   /* ---------- Init ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     applyBusinessDetails();
@@ -518,5 +547,7 @@
     wireMarquee();
     wireParallax();
     setYear();
+    initAnalytics();
+    wireTracking();
   });
 })();

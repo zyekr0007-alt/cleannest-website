@@ -46,7 +46,7 @@ console.log("--- index.html ---");
   check("Hero review count injected", doc.getElementById("heroReviewCount").textContent === "219+");
   check("CTA call button wired", doc.getElementById("ctaCall").getAttribute("href") === "tel:+917610000654");
   check("App dock present", doc.querySelector(".app-dock") !== null);
-  check("App dock has 6 slots (5 tabs + Book CTA)", doc.querySelectorAll(".app-dock > a").length === 6);
+  check("App dock has 7 slots (6 tabs + Book CTA)", doc.querySelectorAll(".app-dock > a").length === 7);
   check("App dock Home tab active on index", doc.querySelector(".dock__item--active").getAttribute("href") === "index.html");
   check("App dock Book CTA present", doc.querySelector(".dock__book-btn") !== null);
   check("App dock icons use 3D sprite", doc.querySelector(".dock__ic svg use").getAttribute("href").includes("3d-sprite.svg#i-house"));
